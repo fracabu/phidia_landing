@@ -67,8 +67,9 @@ section {
   animation: fadeIn 0.8s ease forwards 0.8s;
 }
 
-.hero-button-3d{
- --shadow-y: 6px;
+/* Button 3D */
+.hero-button-3d, .button-3d {
+  --shadow-y: 6px;
   --shadow-color: var(--brand-dark);
   --highlight-color: var(--text-light);
 
@@ -88,47 +89,18 @@ section {
   text-decoration: none;
   margin-top: 2rem;
 }
-
-.hero-button-3d:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 calc(var(--shadow-y) + 2px) 0 0 var(--shadow-color);
-}
-.hero-button-3d:active {
-  transform: translateY(4px);
-  box-shadow: 0 2px 0 0 var(--shadow-color);
-}
-
-/* BUTTON 3D (Joshua Comeau Style) */
-.button-3d {
-  --shadow-y: 6px;
-  --shadow-color: var(--brand-dark);
-  --highlight-color: var(--text-light);
-
-  background: var(--highlight-color);
-  color: var(--brand-dark);
-  font-weight: 700;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 12px;
-  padding: 1rem 2.5rem;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  transform: translateY(0);
-  box-shadow: 0 var(--shadow-y) 0 0 var(--shadow-color);
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-}
+.hero-button-3d:hover,
 .button-3d:hover {
   transform: translateY(-2px);
   box-shadow: 0 calc(var(--shadow-y) + 2px) 0 0 var(--shadow-color);
 }
+.hero-button-3d:active,
 .button-3d:active {
   transform: translateY(4px);
   box-shadow: 0 2px 0 0 var(--shadow-color);
 }
 
-/* SERVICES */
+/* Services */
 .services {
   display: grid;
   gap: 2rem;
@@ -165,7 +137,7 @@ section {
   transform: scale(1.15);
 }
 
-/* PROOF */
+/* Proof */
 .proof {
   background: var(--brand-dark);
   color: var(--text-light);
@@ -179,7 +151,7 @@ section {
   font-size: 2rem;
 }
 
-/* PODCAST */
+/* Podcast */
 .podcast-container {
   display: flex;
   justify-content: center;
@@ -225,7 +197,6 @@ section {
   max-width: 400px;
 }
 
-
 /* CTA */
 .cta {
   background: var(--brand);
@@ -238,7 +209,7 @@ section {
   margin-bottom: 1.5rem;
 }
 
-/* ANIMATIONS */
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -258,6 +229,8 @@ section {
   opacity: 1;
   transform: none;
 }
+
+/* Hero Columns */
 .hero.two-columns {
   flex-direction: row;
   justify-content: space-between;
@@ -267,17 +240,14 @@ section {
   gap: 4rem;
   flex-wrap: wrap;
 }
-
 .hero-left, .hero-right {
   flex: 1 1 45%;
   z-index: 1;
 }
-
 .hero-right {
   color: #fff;
   backdrop-filter: blur(6px);
 }
-
 .hero .podcast-cover {
   width: 100%;
   max-width: 300px;
@@ -289,7 +259,6 @@ section {
   max-width: 400px;
 }
 
-/* Chatbot */
 /* Chatbot */
 .chatbot {
   background: #fff;
@@ -306,7 +275,6 @@ section {
   margin-bottom: 1rem;
   color: #444;
 }
-
 .chat-faq {
   display: flex;
   flex-wrap: wrap;
@@ -327,7 +295,6 @@ section {
 .chat-faq button:hover {
   background: var(--brand-dark);
 }
-
 .chatbox {
   display: flex;
   flex-direction: column;
@@ -357,4 +324,62 @@ section {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   min-height: 40px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .hero-logo {
+    position: static;
+    margin: 1rem auto 2rem;
+    display: block;
+  }
+
+  .hero.two-columns {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 5vw;
+  }
+
+  .hero-left, .hero-right {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .podcast-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .podcast-cover {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 1rem;
+  }
+
+  .podcast-info audio {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2rem 5vw;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p,
+  .proof p,
+  .chatbot p {
+    font-size: 1rem;
+  }
+
+  .hero-button-3d,
+  .button-3d {
+    font-size: 0.95rem;
+    padding: 0.75rem 2rem;
+  }
 }
